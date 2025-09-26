@@ -1,34 +1,20 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/Clone1/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj": {}
+    "/home/mylisuthy/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj": {}
   },
   "projects": {
-    "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/Clone1/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj": {
+    "/home/mylisuthy/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/Clone1/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
+        "projectUniqueName": "/home/mylisuthy/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
         "projectName": "VeterinariaSanMiguel",
-        "projectPath": "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/Clone1/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
-        "packagesPath": "/home/javierdev/.nuget/packages/",
-        "outputPath": "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/Clone1/VeterinariaSanMiguel/obj/",
-=======
-    "/home/csharp/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj": {}
-  },
-  "projects": {
-    "/home/csharp/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/csharp/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
-        "projectName": "VeterinariaSanMiguel",
-        "projectPath": "/home/csharp/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
-        "packagesPath": "/home/csharp/.nuget/packages/",
-        "outputPath": "/home/csharp/Escritorio/VeterinariaSanMiguel/obj/",
->>>>>>> 36a71f717f619e328b08a3fb9071f9aa944c6cbe
+        "projectPath": "/home/mylisuthy/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
+        "packagesPath": "/home/mylisuthy/.nuget/packages/",
+        "outputPath": "/home/mylisuthy/Escritorio/VeterinariaSanMiguel/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/csharp/.nuget/NuGet/NuGet.Config"
+          "/home/mylisuthy/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -46,13 +32,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -89,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/csharp/.dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.119/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
