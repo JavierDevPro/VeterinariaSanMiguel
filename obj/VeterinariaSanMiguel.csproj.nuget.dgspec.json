@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/VeterinariaSanMiguel/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj": {}
+    "/home/csharp/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj": {}
   },
   "projects": {
-    "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/VeterinariaSanMiguel/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj": {
+    "/home/csharp/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/VeterinariaSanMiguel/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
+        "projectUniqueName": "/home/csharp/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
         "projectName": "VeterinariaSanMiguel",
-        "projectPath": "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/VeterinariaSanMiguel/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
-        "packagesPath": "/home/javierdev/.nuget/packages/",
-        "outputPath": "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/VeterinariaSanMiguel/VeterinariaSanMiguel/obj/",
+        "projectPath": "/home/csharp/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
+        "packagesPath": "/home/csharp/.nuget/packages/",
+        "outputPath": "/home/csharp/Escritorio/VeterinariaSanMiguel/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/javierdev/.nuget/NuGet/NuGet.Config"
+          "/home/csharp/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,33 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -53,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.119/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/csharp/.dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

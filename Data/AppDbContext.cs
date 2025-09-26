@@ -1,6 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using VeterinariaSanMiguel.Models;
+
 namespace VeterinariaSanMiguel.Data;
 
-public class AppDbContext
+public class AppDbContext : DbContext
 {
     //para que se le quite el rojo le ponen lo siguiente:
     //aqui en data o infrastructure
@@ -17,18 +20,19 @@ public class AppDbContext
     //>>> dotnet ef migrations add InitialCreate
     //>>> dotnet ef database update
     // si te salto algun problema investiga como hacer las primary keys.
-    public DbSet<Profesor> Profesores { get; set; }
-    public DbSet<Estudiante> Estudiantes { get; set; }
     
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //public DbSet<Profesor> Profesores { get; set; }
+    public DbSet<Client> Clients { get; set; }
+    
+   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
         {
             optionsBuilder.UseMySql(
                 "server=localhost;" +
                 "database=riwi_db;" +
-                "user=root;" + // su root
-                "password=Riwitactics123*",//este le ponen su contra del root de su pc o de el sql
+                "user=braian;" + // su root
+                "password=123",//este le ponen su contra del root de su pc o de el sql
                 new MySqlServerVersion(new Version(8, 0, 36))
             );
         }
