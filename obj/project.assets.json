@@ -2907,11 +2907,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/Clone1/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
+      "projectName": "VeterinariaSanMiguel",
+      "projectPath": "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/Clone1/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
+      "packagesPath": "/home/javierdev/.nuget/packages/",
+      "outputPath": "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/Clone1/VeterinariaSanMiguel/obj/",
+=======
       "projectUniqueName": "/home/csharp/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
       "projectName": "VeterinariaSanMiguel",
       "projectPath": "/home/csharp/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
       "packagesPath": "/home/csharp/.nuget/packages/",
       "outputPath": "/home/csharp/Escritorio/VeterinariaSanMiguel/obj/",
+>>>>>>> 36a71f717f619e328b08a3fb9071f9aa944c6cbe
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/csharp/.nuget/NuGet/NuGet.Config"
