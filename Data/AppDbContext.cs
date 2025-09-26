@@ -1,6 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using VeterinariaSanMiguel.Models; 
+    
 namespace VeterinariaSanMiguel.Data;
 
-public class AppDbContext
+public class AppDbContext : DbContext
 {
     //para que se le quite el rojo le ponen lo siguiente:
     //aqui en data o infrastructure
@@ -17,8 +20,7 @@ public class AppDbContext
     //>>> dotnet ef migrations add InitialCreate
     //>>> dotnet ef database update
     // si te salto algun problema investiga como hacer las primary keys.
-    public DbSet<Profesor> Profesores { get; set; }
-    public DbSet<Estudiante> Estudiantes { get; set; }
+    public DbSet<VeterinaryAppointment> VetsAppointments { get; set; }
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
