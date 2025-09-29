@@ -1,39 +1,31 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/Clone1/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj": {}
+    "D:\\Docs\\TallerS3\\Clonned1\\VeterinariaSanMiguel\\VeterinariaSanMiguel.csproj": {}
   },
   "projects": {
-    "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/Clone1/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj": {
+    "D:\\Docs\\TallerS3\\Clonned1\\VeterinariaSanMiguel\\VeterinariaSanMiguel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/Clone1/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
+        "projectUniqueName": "D:\\Docs\\TallerS3\\Clonned1\\VeterinariaSanMiguel\\VeterinariaSanMiguel.csproj",
         "projectName": "VeterinariaSanMiguel",
-        "projectPath": "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/Clone1/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
-        "packagesPath": "/home/javierdev/.nuget/packages/",
-        "outputPath": "/home/javierdev/Escritorio/JavierDevMañana/C#/TallerS3/Clone1/VeterinariaSanMiguel/obj/",
-=======
-    "/home/csharp/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj": {}
-  },
-  "projects": {
-    "/home/csharp/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/csharp/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
-        "projectName": "VeterinariaSanMiguel",
-        "projectPath": "/home/csharp/Escritorio/VeterinariaSanMiguel/VeterinariaSanMiguel.csproj",
-        "packagesPath": "/home/csharp/.nuget/packages/",
-        "outputPath": "/home/csharp/Escritorio/VeterinariaSanMiguel/obj/",
->>>>>>> 36a71f717f619e328b08a3fb9071f9aa944c6cbe
+        "projectPath": "D:\\Docs\\TallerS3\\Clonned1\\VeterinariaSanMiguel\\VeterinariaSanMiguel.csproj",
+        "packagesPath": "C:\\Users\\gnajs\\.nuget\\packages\\",
+        "outputPath": "D:\\Docs\\TallerS3\\Clonned1\\VeterinariaSanMiguel\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/csharp/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\gnajs\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -89,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/csharp/.dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
