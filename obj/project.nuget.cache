@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gbDDi6m16EE=",
+  "dgSpecHash": "IlypmWL1NH4=",
   "success": true,
-  "projectFilePath": "D:\\Docs\\TallerS3\\Clonned1\\VeterinariaSanMiguel\\VeterinariaSanMiguel.csproj",
+  "projectFilePath": "D:\\Docs\\TallerS3\\Clonned2\\VeterinariaSanMiguel\\VeterinariaSanMiguel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gnajs\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\gnajs\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
