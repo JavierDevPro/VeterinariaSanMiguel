@@ -13,10 +13,47 @@ public class ClientService : IClient<Client>
         _context = context;
     }
     
-    // Menu de opciones 
+    // Menú principal de clientes
+    public void ClientMenu()
+    {
+        while (true)
+        {
+            Console.WriteLine("\n Menú Clientes ");
+            Console.WriteLine("1. Registrar Clientes");
+            Console.WriteLine("2. Listar Clientes");
+            Console.WriteLine("3. Eliminar Clientes");
+            Console.WriteLine("4. Editar Clientes");
+            Console.WriteLine("0. Volver");
+            Console.Write("Seleccione una opción: ");
+
+            var option = Console.ReadLine();
+
+            switch (option)
+            {
+                case "1":
+                    RegisterMenu();
+                    break;
+                case "2":
+                    ListarMenu();
+                    break;
+                case "3":
+                    EliminarMenu();
+                    break;
+                case "4":
+                    EditarMenu();
+                    break;
+                case "0":
+                    return;
+                default:
+                    Console.WriteLine("Opción no válida.");
+                    break;
+            }
+        }
+    }
+    
     public void RegisterMenu()
     {
-        Console.WriteLine("------Registrar Clientes------");
+        Console.WriteLine("-Registrar Clientes-");
 
         Console.Write("Ingrese el nombre del cliente: ");
         string nombre = Console.ReadLine();
@@ -40,7 +77,7 @@ public class ClientService : IClient<Client>
     
     public void ListarMenu()
     {
-        Console.WriteLine("-----Lista de clientes-----");
+        Console.WriteLine("-Lista de clientes-");
         Console.WriteLine("ID\tNombre\tEdad\tTeléfono\tCorreo\t\t\tSeguro");
 
         foreach (var c in ListAll())
@@ -51,7 +88,7 @@ public class ClientService : IClient<Client>
 
     public void EliminarMenu()
     {
-        Console.WriteLine("-----Lista de clientes------");
+        Console.WriteLine("-Lista de clientes-");
         foreach (var c in ListAll())
         {
             Console.WriteLine($"{c.IdPerson} - {c.name} ({c.age} años) - {c.email}");
@@ -71,7 +108,7 @@ public class ClientService : IClient<Client>
 
     public void EditarMenu()
     {
-        Console.WriteLine("\n----- Editar Cliente -----");
+        Console.WriteLine("\n-Editar Cliente-");
         Console.Write("Ingrese el ID del cliente que desea editar: ");
         int idEditar = int.Parse(Console.ReadLine());
 

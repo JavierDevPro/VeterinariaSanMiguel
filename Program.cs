@@ -7,37 +7,48 @@ namespace VeterinariaSanMiguel;
 
 public class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         var context = new AppDbContext();
-        var clienteUI = new ClientService(context);
-        
-        Console.WriteLine("-----Menu de opciones de cliente-----");
-        Console.WriteLine("1. Registrar Clientes");
-        Console.WriteLine("2. Listar Clientes");
-        Console.WriteLine("3. Eliminar Clientes");
-        Console.WriteLine("4. Editar Clientes");
+        var clientService = new ClientService(context);
+        var appointmentService = new VetAppointmentService(context);
+        var petService = new PetService(context);
+        var veterinaryService = new VeterinaryService(context);
 
-        Console.WriteLine("¿Que deseas hacer?");
-        string opcion =  Console.ReadLine();
-        
-        switch (opcion)
+        while (true)
         {
-            case "1":
-                clienteUI.RegisterMenu();
-                break;
-            case "2":
-                clienteUI.ListarMenu();
-                break;
-            case "3":
-                clienteUI.EliminarMenu();
-                break;
-            case "4":
-                clienteUI.EditarMenu();
-                break;
-            default:
-                Console.WriteLine("Ingrese una opcion valida");
-                return;
+            Console.WriteLine("\n===== Menú Principal =====");
+            Console.WriteLine("1. Clientes");
+            Console.WriteLine("2. Citas (Appointments)");
+            Console.WriteLine("3. Mascotas (Pets)");
+            Console.WriteLine("4. Veterinarios");
+            Console.WriteLine("0. Salir");
+            Console.Write("Seleccione una opción: ");
+
+            var opcion = Console.ReadLine();
+
+            switch (opcion)
+            {
+                case "1":
+                    clientService.ClientMenu();
+                    break;
+                case "2":
+                    await appointmentService.AppointmentMenu();
+                    break;
+                case "3":
+                    await petService.PetMenu();
+                    break;
+                case "4":
+                    Console.WriteLine("Menú de Veterinarios próximamente...");
+                    veterinaryService.VeterinaryMenu();
+                    break;
+                case "0":
+                    Console.WriteLine("Saliendo...");
+                    return;
+                default:
+                    Console.WriteLine("Opción no válida.");
+                    break;
+            }
         }
     }
 }

@@ -19,9 +19,11 @@ public class AppDbContext : DbContext
     //>>> dotnet tool install --global dotnet-ef
     //>>> dotnet ef migrations add InitialCreate
     //>>> dotnet ef database update
-    // si te salto algun problema investiga como hacer las primary keys.
+    // si te salto algun problem investiga como hacer las primary keys.
     public DbSet<Client> Clients { get; set; }
     public DbSet<VeterinaryAppointment> VeterinaryAppointments { get; set; }
+    public DbSet<Pet> Pets { get; set; }
+    public DbSet<Veterinary> Veterinaries { get; set; }
     
    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -29,7 +31,7 @@ public class AppDbContext : DbContext
         {
             optionsBuilder.UseMySql(
                 "server=localhost;" +
-                "database=VeterinariaSanMiguelTest1;" +
+                "database=VeterinariaSanMiguelTest2;" +
                 "user=root;" + // su root
                 "password=BD1234",//este le ponen su contra del root de su pc o de el sql
                 new MySqlServerVersion(new Version(8, 0, 36))

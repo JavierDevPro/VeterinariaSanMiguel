@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace VeterinariaSanMiguel.Migrations
 {
     /// <inheritdoc />
-    public partial class AppointmentTry1 : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,7 +37,29 @@ namespace VeterinariaSanMiguel.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Pet",
+                name: "Veterinaries",
+                columns: table => new
+                {
+                    IdPerson = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Speciality = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    name = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    age = table.Column<int>(type: "int", nullable: false),
+                    phoneNumber = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    email = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Veterinaries", x => x.IdPerson);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Pets",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
@@ -50,9 +72,9 @@ namespace VeterinariaSanMiguel.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Pet", x => x.id);
+                    table.PrimaryKey("PK_Pets", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Pet_Clients_IdPerson",
+                        name: "FK_Pets_Clients_IdPerson",
                         column: x => x.IdPerson,
                         principalTable: "Clients",
                         principalColumn: "IdPerson",
@@ -76,23 +98,34 @@ namespace VeterinariaSanMiguel.Migrations
                 {
                     table.PrimaryKey("PK_VeterinaryAppointments", x => x.IdVetAppointment);
                     table.ForeignKey(
-                        name: "FK_VeterinaryAppointments_Pet_IdPet",
+                        name: "FK_VeterinaryAppointments_Pets_IdPet",
                         column: x => x.IdPet,
-                        principalTable: "Pet",
+                        principalTable: "Pets",
                         principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_VeterinaryAppointments_Veterinaries_IdVet",
+                        column: x => x.IdVet,
+                        principalTable: "Veterinaries",
+                        principalColumn: "IdPerson",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Pet_IdPerson",
-                table: "Pet",
+                name: "IX_Pets_IdPerson",
+                table: "Pets",
                 column: "IdPerson");
 
             migrationBuilder.CreateIndex(
                 name: "IX_VeterinaryAppointments_IdPet",
                 table: "VeterinaryAppointments",
                 column: "IdPet");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VeterinaryAppointments_IdVet",
+                table: "VeterinaryAppointments",
+                column: "IdVet");
         }
 
         /// <inheritdoc />
@@ -102,7 +135,10 @@ namespace VeterinariaSanMiguel.Migrations
                 name: "VeterinaryAppointments");
 
             migrationBuilder.DropTable(
-                name: "Pet");
+                name: "Pets");
+
+            migrationBuilder.DropTable(
+                name: "Veterinaries");
 
             migrationBuilder.DropTable(
                 name: "Clients");
