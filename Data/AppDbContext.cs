@@ -1,11 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
 using VeterinariaSanMiguel.Models; 
     
-=======
-using VeterinariaSanMiguel.Models;
-
->>>>>>> 36a71f717f619e328b08a3fb9071f9aa944c6cbe
 namespace VeterinariaSanMiguel.Data;
 
 public class AppDbContext : DbContext
@@ -25,13 +20,8 @@ public class AppDbContext : DbContext
     //>>> dotnet ef migrations add InitialCreate
     //>>> dotnet ef database update
     // si te salto algun problema investiga como hacer las primary keys.
-<<<<<<< HEAD
-    public DbSet<VeterinaryAppointment> VetsAppointments { get; set; }
-=======
->>>>>>> 36a71f717f619e328b08a3fb9071f9aa944c6cbe
-    
-    //public DbSet<Profesor> Profesores { get; set; }
     public DbSet<Client> Clients { get; set; }
+    public DbSet<VeterinaryAppointment> VeterinaryAppointments { get; set; }
     
    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -39,9 +29,9 @@ public class AppDbContext : DbContext
         {
             optionsBuilder.UseMySql(
                 "server=localhost;" +
-                "database=riwi_db;" +
-                "user=braian;" + // su root
-                "password=123",//este le ponen su contra del root de su pc o de el sql
+                "database=VeterinariaSanMiguelTest1;" +
+                "user=root;" + // su root
+                "password=BD1234",//este le ponen su contra del root de su pc o de el sql
                 new MySqlServerVersion(new Version(8, 0, 36))
             );
         }
