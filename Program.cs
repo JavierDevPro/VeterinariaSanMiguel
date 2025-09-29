@@ -13,7 +13,7 @@ public class Program
         var clientService = new ClientService(context);
         var appointmentService = new VetAppointmentService(context);
         var petService = new PetService(context);
-        var veterinaryService = new VeterinaryService(); // futuro uso
+        var veterinaryService = new VeterinaryService(context);
 
         while (true)
         {
@@ -40,7 +40,7 @@ public class Program
                     break;
                 case "4":
                     Console.WriteLine("Menú de Veterinarios próximamente...");
-                    // veterinaryService.VeterinaryMenu(); //implementar menú de veterinarios
+                    veterinaryService.VeterinaryMenu();
                     break;
                 case "0":
                     Console.WriteLine("Saliendo...");
