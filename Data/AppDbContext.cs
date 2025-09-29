@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using VeterinariaSanMiguel.Models; 
-    
 namespace VeterinariaSanMiguel.Data;
 
 public class AppDbContext : DbContext
@@ -20,20 +19,49 @@ public class AppDbContext : DbContext
     //>>> dotnet ef migrations add InitialCreate
     //>>> dotnet ef database update
     // si te salto algun problema investiga como hacer las primary keys.
-    public DbSet<Client> Clients { get; set; }
-    public DbSet<VeterinaryAppointment> VeterinaryAppointments { get; set; }
+
     
-   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    // DbSet principal para la herencia
+    public DbSet<Person> Persons { get; set; }
+
+    // Estos DbSet son opcionales, pero permiten acceder directamente a cada entidad hija
+    public DbSet<Client> Clients { get; set; }
+    public DbSet<Veterinary> Veterinaries { get; set; }
+
+    // Otras tablas independientes
+    public DbSet<VeterinaryAppointment> VetsAppointments { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
         {
             optionsBuilder.UseMySql(
                 "server=localhost;" +
-                "database=VeterinariaSanMiguelTest1;" +
-                "user=root;" + // su root
-                "password=BD1234",//este le ponen su contra del root de su pc o de el sql
+                "database=riwi;" +
+                "user=root;" +
+                "password=Qwe.123*",
                 new MySqlServerVersion(new Version(8, 0, 36))
             );
         }
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        // Configuración de herencia: Table Per Hierarchy (TPH)
+        modelBuilder.Entity<Person>()
+            .HasDiscriminator<string>("PersonType")  // Columna que indica el tipo
+            .HasValue<Person>("Person")
+            .HasValue<Client>("Client")
+            .HasValue<Veterinary>("Veterinary");
+
+        // Configuración opcional: limitar longitudes o requerimientos
+        modelBuilder.Entity<Veterinary>()
+            .Property(v => v.Speciality)
+            .HasMaxLength(100);
+
+        // Ejemplo: podrías definir reglas específicas para Client
+        modelBuilder.Entity<Client>()
+            .Property(c => c.Email)
+            .IsRequired();
     }
 }

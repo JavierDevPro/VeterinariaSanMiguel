@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace VeterinariaSanMiguel.Migrations
 {
     /// <inheritdoc />
-    public partial class AppointmentTry1 : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,23 +16,27 @@ namespace VeterinariaSanMiguel.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Clients",
+                name: "Persons",
                 columns: table => new
                 {
-                    IdPerson = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    insurance = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    name = table.Column<string>(type: "longtext", nullable: false)
+                    Name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    age = table.Column<int>(type: "int", nullable: false),
-                    phoneNumber = table.Column<string>(type: "longtext", nullable: false)
+                    Age = table.Column<int>(type: "int", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    email = table.Column<string>(type: "longtext", nullable: false)
+                    Email = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    PersonType = table.Column<string>(type: "varchar(13)", maxLength: 13, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Insurance = table.Column<bool>(type: "tinyint(1)", nullable: true),
+                    Speciality = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clients", x => x.IdPerson);
+                    table.PrimaryKey("PK_Persons", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -52,16 +56,16 @@ namespace VeterinariaSanMiguel.Migrations
                 {
                     table.PrimaryKey("PK_Pet", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Pet_Clients_IdPerson",
+                        name: "FK_Pet_Persons_IdPerson",
                         column: x => x.IdPerson,
-                        principalTable: "Clients",
-                        principalColumn: "IdPerson",
+                        principalTable: "Persons",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "VeterinaryAppointments",
+                name: "VetsAppointments",
                 columns: table => new
                 {
                     IdVetAppointment = table.Column<int>(type: "int", nullable: false)
@@ -74,9 +78,15 @@ namespace VeterinariaSanMiguel.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_VeterinaryAppointments", x => x.IdVetAppointment);
+                    table.PrimaryKey("PK_VetsAppointments", x => x.IdVetAppointment);
                     table.ForeignKey(
-                        name: "FK_VeterinaryAppointments_Pet_IdPet",
+                        name: "FK_VetsAppointments_Persons_IdVet",
+                        column: x => x.IdVet,
+                        principalTable: "Persons",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_VetsAppointments_Pet_IdPet",
                         column: x => x.IdPet,
                         principalTable: "Pet",
                         principalColumn: "id",
@@ -90,22 +100,27 @@ namespace VeterinariaSanMiguel.Migrations
                 column: "IdPerson");
 
             migrationBuilder.CreateIndex(
-                name: "IX_VeterinaryAppointments_IdPet",
-                table: "VeterinaryAppointments",
+                name: "IX_VetsAppointments_IdPet",
+                table: "VetsAppointments",
                 column: "IdPet");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VetsAppointments_IdVet",
+                table: "VetsAppointments",
+                column: "IdVet");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "VeterinaryAppointments");
+                name: "VetsAppointments");
 
             migrationBuilder.DropTable(
                 name: "Pet");
 
             migrationBuilder.DropTable(
-                name: "Clients");
+                name: "Persons");
         }
     }
 }
