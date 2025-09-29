@@ -12,8 +12,8 @@ using VeterinariaSanMiguel.Data;
 namespace VeterinariaSanMiguel.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250929030408_AppointmentTry1")]
-    partial class AppointmentTry1
+    [Migration("20250929063301_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -79,7 +79,39 @@ namespace VeterinariaSanMiguel.Migrations
 
                     b.HasIndex("IdPerson");
 
-                    b.ToTable("Pet");
+                    b.ToTable("Pets");
+                });
+
+            modelBuilder.Entity("VeterinariaSanMiguel.Models.Veterinary", b =>
+                {
+                    b.Property<int>("IdPerson")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("IdPerson"));
+
+                    b.Property<string>("Speciality")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("email")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("phoneNumber")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("IdPerson");
+
+                    b.ToTable("Veterinaries");
                 });
 
             modelBuilder.Entity("VeterinariaSanMiguel.Models.VeterinaryAppointment", b =>
@@ -107,6 +139,8 @@ namespace VeterinariaSanMiguel.Migrations
 
                     b.HasIndex("IdPet");
 
+                    b.HasIndex("IdVet");
+
                     b.ToTable("VeterinaryAppointments");
                 });
 
@@ -129,7 +163,15 @@ namespace VeterinariaSanMiguel.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("VeterinariaSanMiguel.Models.Veterinary", "Vet")
+                        .WithMany()
+                        .HasForeignKey("IdVet")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Pet");
+
+                    b.Navigation("Vet");
                 });
 #pragma warning restore 612, 618
         }

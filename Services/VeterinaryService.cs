@@ -13,7 +13,6 @@ public class VeterinaryService : IVeterinaryService<Veterinary>
         _context = context;
     }
 
-    // ===== Menú de Opciones =====
     public void RegisterMenu()
     {
         Console.WriteLine("------Registrar Veterinario------");
@@ -65,6 +64,43 @@ public class VeterinaryService : IVeterinaryService<Veterinary>
         else
         {
             Console.WriteLine("Ingresa un ID válido.");
+        }
+    }
+    
+    public void VeterinaryMenu()
+    {
+        while (true)
+        {
+            Console.WriteLine("\n -> Menu Veterinario <-");
+            Console.WriteLine("1. Registrar Veterinario");
+            Console.WriteLine("2. Listar Veterinario");
+            Console.WriteLine("3. Eliminar Veterinario");
+            Console.WriteLine("4. Editar Veterinario");
+            Console.WriteLine("0. Volver");
+            Console.Write("Seleccione una opción: ");
+
+            var option = Console.ReadLine();
+
+            switch (option)
+            {
+                case "1":
+                    RegisterMenu();
+                    break;
+                case "2":
+                    ListarMenu();
+                    break;
+                case "3":
+                    EliminarMenu();
+                    break;
+                case "4":
+                    EditarMenu();
+                    break;
+                case "0":
+                    return;
+                default:
+                    Console.WriteLine("Opción no válida.");
+                    break;
+            }
         }
     }
 
