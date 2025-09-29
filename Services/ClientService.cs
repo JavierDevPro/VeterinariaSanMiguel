@@ -45,7 +45,7 @@ public class ClientService : IClient<Client>
 
         foreach (var c in ListAll())
         {
-            Console.WriteLine($"{c.id}\t{c.name}\t{c.age}\t{c.phoneNumber}\t{c.email}\t{(c.insurance ? "Sí" : "No")}");
+            Console.WriteLine($"{c.IdPerson}\t{c.name}\t{c.age}\t{c.phoneNumber}\t{c.email}\t{(c.insurance ? "Sí" : "No")}");
         }
     }
 
@@ -54,7 +54,7 @@ public class ClientService : IClient<Client>
         Console.WriteLine("-----Lista de clientes------");
         foreach (var c in ListAll())
         {
-            Console.WriteLine($"{c.id} - {c.name} ({c.age} años) - {c.email}");
+            Console.WriteLine($"{c.IdPerson} - {c.name} ({c.age} años) - {c.email}");
         }
 
         Console.Write("\nIngrese el ID del cliente que desea eliminar: ");
