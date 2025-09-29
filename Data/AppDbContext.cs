@@ -20,6 +20,7 @@ public class AppDbContext : DbContext
     //>>> dotnet ef migrations add InitialCreate
     //>>> dotnet ef database update
     // si te salto algun problema investiga como hacer las primary keys.
+    
     public DbSet<Client> Clients { get; set; }
     public DbSet<VeterinaryAppointment> VeterinaryAppointments { get; set; }
     
