@@ -22,35 +22,41 @@ namespace VeterinariaSanMiguel.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("VeterinariaSanMiguel.Models.Client", b =>
+            modelBuilder.Entity("VeterinariaSanMiguel.Models.Person", b =>
                 {
-                    b.Property<int>("IdPerson")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("IdPerson"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("age")
+                    b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<string>("email")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<bool>("insurance")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("name")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("phoneNumber")
+                    b.Property<string>("PersonType")
+                        .IsRequired()
+                        .HasMaxLength(13)
+                        .HasColumnType("varchar(13)");
+
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("IdPerson");
+                    b.HasKey("Id");
 
-                    b.ToTable("Clients");
+                    b.ToTable("Persons");
+
+                    b.HasDiscriminator<string>("PersonType").HasValue("Person");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("VeterinariaSanMiguel.Models.Pet", b =>
@@ -104,7 +110,31 @@ namespace VeterinariaSanMiguel.Migrations
 
                     b.HasIndex("IdPet");
 
-                    b.ToTable("VeterinaryAppointments");
+                    b.HasIndex("IdVet");
+
+                    b.ToTable("VetsAppointments");
+                });
+
+            modelBuilder.Entity("VeterinariaSanMiguel.Models.Client", b =>
+                {
+                    b.HasBaseType("VeterinariaSanMiguel.Models.Person");
+
+                    b.Property<bool>("Insurance")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasDiscriminator().HasValue("Client");
+                });
+
+            modelBuilder.Entity("VeterinariaSanMiguel.Models.Veterinary", b =>
+                {
+                    b.HasBaseType("VeterinariaSanMiguel.Models.Person");
+
+                    b.Property<string>("Speciality")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.HasDiscriminator().HasValue("Veterinary");
                 });
 
             modelBuilder.Entity("VeterinariaSanMiguel.Models.Pet", b =>
@@ -126,7 +156,15 @@ namespace VeterinariaSanMiguel.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("VeterinariaSanMiguel.Models.Veterinary", "Vet")
+                        .WithMany()
+                        .HasForeignKey("IdVet")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Pet");
+
+                    b.Navigation("Vet");
                 });
 #pragma warning restore 612, 618
         }
