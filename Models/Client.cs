@@ -2,6 +2,6 @@ namespace VeterinariaSanMiguel.Models;
 
 public class Client : Person
 {
-    public bool Insurance { get; set; }
+    public bool insurance { get; set; }
     private string insuranceType { get; set; }
 }

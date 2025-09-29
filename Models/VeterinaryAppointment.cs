@@ -19,6 +19,6 @@ public class VeterinaryAppointment
     [ForeignKey("IdPet")]
     public Pet Pet { get; set; }
     
-    [ForeignKey("IdVet")]
-    public Veterinary Vet { get; set; }
+    // [ForeignKey("IdVet")]
+    // public Veterinary Vet { get; set; }
 }
