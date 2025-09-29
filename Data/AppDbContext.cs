@@ -1,11 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
+
 using VeterinariaSanMiguel.Models; 
     
-=======
-using VeterinariaSanMiguel.Models;
 
->>>>>>> 36a71f717f619e328b08a3fb9071f9aa944c6cbe
 namespace VeterinariaSanMiguel.Data;
 
 public class AppDbContext : DbContext
@@ -25,11 +22,8 @@ public class AppDbContext : DbContext
     //>>> dotnet ef migrations add InitialCreate
     //>>> dotnet ef database update
     // si te salto algun problema investiga como hacer las primary keys.
-<<<<<<< HEAD
+
     public DbSet<VeterinaryAppointment> VetsAppointments { get; set; }
-=======
->>>>>>> 36a71f717f619e328b08a3fb9071f9aa944c6cbe
-    
     //public DbSet<Profesor> Profesores { get; set; }
     public DbSet<Client> Clients { get; set; }
     
