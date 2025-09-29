@@ -19,9 +19,10 @@ public class AppDbContext : DbContext
     //>>> dotnet tool install --global dotnet-ef
     //>>> dotnet ef migrations add InitialCreate
     //>>> dotnet ef database update
-    // si te salto algun problema investiga como hacer las primary keys.
+    // si te salto algun problem investiga como hacer las primary keys.
     public DbSet<Client> Clients { get; set; }
     public DbSet<VeterinaryAppointment> VeterinaryAppointments { get; set; }
+    public DbSet<Pet> Pets { get; set; }
     
    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

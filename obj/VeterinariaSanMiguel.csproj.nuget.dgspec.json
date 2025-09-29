@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Docs\\TallerS3\\Clonned1\\VeterinariaSanMiguel\\VeterinariaSanMiguel.csproj": {}
+    "D:\\Docs\\TallerS3\\Clonned2\\VeterinariaSanMiguel\\VeterinariaSanMiguel.csproj": {}
   },
   "projects": {
-    "D:\\Docs\\TallerS3\\Clonned1\\VeterinariaSanMiguel\\VeterinariaSanMiguel.csproj": {
+    "D:\\Docs\\TallerS3\\Clonned2\\VeterinariaSanMiguel\\VeterinariaSanMiguel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Docs\\TallerS3\\Clonned1\\VeterinariaSanMiguel\\VeterinariaSanMiguel.csproj",
+        "projectUniqueName": "D:\\Docs\\TallerS3\\Clonned2\\VeterinariaSanMiguel\\VeterinariaSanMiguel.csproj",
         "projectName": "VeterinariaSanMiguel",
-        "projectPath": "D:\\Docs\\TallerS3\\Clonned1\\VeterinariaSanMiguel\\VeterinariaSanMiguel.csproj",
+        "projectPath": "D:\\Docs\\TallerS3\\Clonned2\\VeterinariaSanMiguel\\VeterinariaSanMiguel.csproj",
         "packagesPath": "C:\\Users\\gnajs\\.nuget\\packages\\",
-        "outputPath": "D:\\Docs\\TallerS3\\Clonned1\\VeterinariaSanMiguel\\obj\\",
+        "outputPath": "D:\\Docs\\TallerS3\\Clonned2\\VeterinariaSanMiguel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

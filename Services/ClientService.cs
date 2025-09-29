@@ -13,6 +13,44 @@ public class ClientService : IClient<Client>
         _context = context;
     }
     
+    // Menú principal de clientes
+    public void ClientMenu()
+    {
+        while (true)
+        {
+            Console.WriteLine("\n==== Menú Clientes ====");
+            Console.WriteLine("1. Registrar Clientes");
+            Console.WriteLine("2. Listar Clientes");
+            Console.WriteLine("3. Eliminar Clientes");
+            Console.WriteLine("4. Editar Clientes");
+            Console.WriteLine("0. Volver");
+            Console.Write("Seleccione una opción: ");
+
+            var option = Console.ReadLine();
+
+            switch (option)
+            {
+                case "1":
+                    RegisterMenu();
+                    break;
+                case "2":
+                    ListarMenu();
+                    break;
+                case "3":
+                    EliminarMenu();
+                    break;
+                case "4":
+                    EditarMenu();
+                    break;
+                case "0":
+                    return;
+                default:
+                    Console.WriteLine("Opción no válida.");
+                    break;
+            }
+        }
+    }
+    
     // Menu de opciones 
     public void RegisterMenu()
     {
